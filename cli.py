@@ -6,6 +6,10 @@ from mini_git.repository import init_repo
 from mini_git.repository import add_file
 from mini_git.commit import create_commit
 from mini_git.commit import show_log
+from mini_git.branch import (
+    create_branch,
+    list_branches
+)
 
 command = sys.argv[1]
 
@@ -24,3 +28,11 @@ elif command == "commit":
 
 elif command == "log":
     show_log()
+
+elif command == "branch":
+
+    if len(sys.argv) == 2:
+        list_branches()
+
+    else:
+        create_branch(sys.argv[2])
