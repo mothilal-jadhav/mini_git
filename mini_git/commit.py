@@ -89,4 +89,9 @@ def show_log():
         print(f"\n    {commit['message']}")
         print("\n--------------------------------")
 
-        current = commit["parent"]
+        if "parents" in commit:
+            current = commit["parents"][0]
+        else:
+            current = commit["parent"]
+
+            

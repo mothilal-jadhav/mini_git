@@ -12,6 +12,7 @@ from mini_git.branch import (
     list_branches
 )
 from mini_git.branch import checkout_branch
+from mini_git.merge import merge_branch
 
 command = sys.argv[1]
 
@@ -47,3 +48,10 @@ elif command == "checkout":
 
 elif command == "status":
     status()
+
+elif command == "merge":
+
+    merge_branch(
+        sys.argv[2]
+    )
+
