@@ -2,6 +2,7 @@ import json
 import hashlib
 import os
 import time
+from datetime import datetime
 
 GIT_DIR = ".mini_git"
 INDEX_FILE = os.path.join(GIT_DIR, "index")
@@ -62,3 +63,30 @@ def create_commit(message):
         f.write(commit_hash)
 
     print(f"Commit created: {commit_hash[:8]}")
+
+# read commit 
+
+def read_commit(commit_hash):
+
+    path = os.path.join(COMMITS_DIR, commit_hash)
+
+    with open(path, "r") as f:
+        return json.load(f)
+    
+# log traversal
+
+def show_log():
+
+    current = get_latest_commit()
+
+    while current:
+
+        commit = read_commit(current)
+
+        print(f"\ncommit {current}")
+        date = datetime.fromtimestamp(commit['timestamp'])
+        print(f"Date: {date.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"\n    {commit['message']}")
+        print("\n--------------------------------")
+
+        current = commit["parent"]
