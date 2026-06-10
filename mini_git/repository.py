@@ -35,6 +35,7 @@ def init_repo():
 
     os.makedirs(f"{GIT_DIR}/objects")
     os.makedirs(f"{GIT_DIR}/refs")
+    os.makedirs(f"{GIT_DIR}/commits")
 
     with open(f"{GIT_DIR}/HEAD", "w") as f:
         pass
