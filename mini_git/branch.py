@@ -51,3 +51,21 @@ def list_branches():
             print(f"* {branch}")
         else:
             print(f"  {branch}")
+
+# checkout branch
+
+def checkout_branch(branch_name):
+
+    branch_file = os.path.join(
+        REFS_DIR,
+        branch_name
+    )
+
+    if not os.path.exists(branch_file):
+        print("Branch does not exist")
+        return
+
+    with open(HEAD_FILE, "w") as f:
+        f.write(branch_name)
+
+    print(f"Switched to branch '{branch_name}'")

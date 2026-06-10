@@ -41,3 +41,12 @@ def init_repo():
         pass
 
     print("Initialized empty mini_git repository")
+
+# status command
+
+def status():
+
+    with open(".mini_git/HEAD") as f:
+        branch = f.read().strip()
+
+    print(f"On branch {branch}")
