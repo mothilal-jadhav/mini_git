@@ -1,0 +1,3 @@
+.mini_git/
+__pycache__/
+*.pyc
