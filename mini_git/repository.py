@@ -13,6 +13,6 @@ def init_repo():
     os.makedirs(f"{GIT_DIR}/refs")
 
     with open(f"{GIT_DIR}/HEAD", "w") as f:
-        f.write("main")
+        pass
 
     print("Initialized empty mini_git repository")
